@@ -1,6 +1,14 @@
 import json
 import os
 
+# Colores ANSI para decoración en terminal
+ROJO = "\033[91m"
+VERDE = "\033[92m"
+AMARILLO = "\033[93m"
+AZUL = "\033[94m"
+RESET = "\033[0m"
+
+
 ARCHIVO = 'tareas.json'
 
 # Carga las tareas desde el archivo si existe, o devuelve una lista vacía
