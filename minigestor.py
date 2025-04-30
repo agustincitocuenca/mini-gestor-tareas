@@ -36,7 +36,7 @@ def listar_tareas(tareas):
     for i, tarea in enumerate(tareas):
         estado = "✔ Completada" if tarea['completada'] else "⏳ Pendiente"
         print(f"{i + 1}. {tarea['descripcion']} [{estado}]")
-        
+
 # Marca una tarea como completada
 def completar_tarea(tareas):
     listar_tareas(tareas)
@@ -66,3 +66,34 @@ def eliminar_tarea(tareas):
             print("❌ Número inválido.")
     except ValueError:
         print("❌ Entrada inválida.")
+        
+# Menú principal
+def menu():
+    tareas = cargar_tareas()
+    while True:
+        print("\n=== Mini Gestor de Tareas ===")
+        print("1. Agregar tarea")
+        print("2. Listar tareas")
+        print("3. Completar tarea")
+        print("4. Eliminar tarea")
+        print("5. Salir")
+
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            agregar_tarea(tareas)
+        elif opcion == "2":
+            listar_tareas(tareas)
+        elif opcion == "3":
+            completar_tarea(tareas)
+        elif opcion == "4":
+            eliminar_tarea(tareas)
+        elif opcion == "5":
+            guardar_tareas(tareas)
+            print("👋 ¡Hasta luego!")
+            break
+        else:
+            print("❌ Opción inválida.")
+
+if __name__ == "__main__":
+    menu()
