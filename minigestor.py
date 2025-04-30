@@ -37,3 +37,32 @@ def listar_tareas(tareas):
         estado = "✔ Completada" if tarea['completada'] else "⏳ Pendiente"
         print(f"{i + 1}. {tarea['descripcion']} [{estado}]")
         
+# Marca una tarea como completada
+def completar_tarea(tareas):
+    listar_tareas(tareas)
+    if not tareas:
+        return
+    try:
+        num = int(input("Ingrese el número de la tarea a completar: "))
+        if 1 <= num <= len(tareas):
+            tareas[num - 1]['completada'] = True
+            print("✅ Tarea marcada como completada.")
+        else:
+            print("❌ Número inválido.")
+    except ValueError:
+        print("❌ Entrada inválida.")
+
+# Elimina una tarea
+def eliminar_tarea(tareas):
+    listar_tareas(tareas)
+    if not tareas:
+        return
+    try:
+        num = int(input("Ingrese el número de la tarea a eliminar: "))
+        if 1 <= num <= len(tareas):
+            eliminada = tareas.pop(num - 1)
+            print(f"🗑 Tarea eliminada: {eliminada['descripcion']}")
+        else:
+            print("❌ Número inválido.")
+    except ValueError:
+        print("❌ Entrada inválida.")
