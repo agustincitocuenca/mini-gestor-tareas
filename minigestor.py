@@ -66,19 +66,19 @@ def eliminar_tarea(tareas):
             print("❌ Número inválido.")
     except ValueError:
         print("❌ Entrada inválida.")
-        
-# Menú principal
+
+# Menú principal con decoración
 def menu():
     tareas = cargar_tareas()
     while True:
-        print("\n=== Mini Gestor de Tareas ===")
-        print("1. Agregar tarea")
-        print("2. Listar tareas")
-        print("3. Completar tarea")
-        print("4. Eliminar tarea")
-        print("5. Salir")
+        print(f"\n{AZUL}=== 📝 Mini Gestor de Tareas ==={RESET}")
+        print("1️⃣  Agregar tarea")
+        print("2️⃣  Listar tareas")
+        print("3️⃣  Completar tarea")
+        print("4️⃣  Eliminar tarea")
+        print("5️⃣  Salir")
 
-        opcion = input("Seleccione una opción: ")
+        opcion = input(f"{AMARILLO}Seleccione una opción: {RESET}")
 
         if opcion == "1":
             agregar_tarea(tareas)
@@ -90,10 +90,10 @@ def menu():
             eliminar_tarea(tareas)
         elif opcion == "5":
             guardar_tareas(tareas)
-            print("👋 ¡Hasta luego!")
+            print(f"{VERDE}👋 ¡Hasta luego! Tus tareas se han guardado.{RESET}")
             break
         else:
-            print("❌ Opción inválida.")
+            print(f"{ROJO}❌ Opción inválida. Intente nuevamente.{RESET}")
 
 if __name__ == "__main__":
     menu()
